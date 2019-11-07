@@ -9,10 +9,26 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300"
              Name="MyToolWindow">
+    <UserControl.Resources>
+        <Style x:Key="MyFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Opacity="0.3" Margin="-2" StrokeThickness="3" Stroke="Blue"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
             <TextBlock Margin="10" HorizontalAlignment="Center">ToolWindow</TextBlock>
-            <Button Content="Click me!" Click="button1_Click" Width="120" Height="80" Name="button1"/>
+            <Button Content="Button 1" Click="button1_Click" Width="100" Height="30" Name="button1" Margin="8" FocusVisualStyle="{DynamicResource MyFocusVisual}"/>
+            <Button Content="Button 2" Click="button1_Click" Width="100" Height="30" Name="button2" Margin="8"/>
+            <Button Content="Button 3" Click="button1_Click" Width="100" Height="30" Name="button3" Margin="8"/>
+            <Button Content="Button 4" Click="button1_Click" Width="100" Height="30" Name="button4" Margin="8"/>
+            <ComboBox Width="100" Height="30"/>
+            <TextBox Width="120" Height="30" Margin="8"/>
         </StackPanel>
     </Grid>
 </UserControl>
