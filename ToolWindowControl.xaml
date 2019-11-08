@@ -7,7 +7,7 @@
              Background="{DynamicResource {x:Static vsshell:VsBrushes.WindowKey}}"
              Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="500" d:DesignWidth="300"
              Name="MyToolWindow">
     <UserControl.Resources>
         <Style x:Key="MyFocusVisual">
@@ -21,14 +21,22 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <TextBlock Margin="10" HorizontalAlignment="Center">ToolWindow</TextBlock>
-            <Button Content="Button 1" Click="button1_Click" Width="100" Height="30" Name="button1" Margin="8" FocusVisualStyle="{DynamicResource MyFocusVisual}"/>
-            <Button Content="Button 2" Click="button1_Click" Width="100" Height="30" Name="button2" Margin="8"/>
-            <Button Content="Button 3" Click="button1_Click" Width="100" Height="30" Name="button3" Margin="8"/>
-            <Button Content="Button 4" Click="button1_Click" Width="100" Height="30" Name="button4" Margin="8"/>
-            <ComboBox Width="100" Height="30"/>
-            <TextBox Width="120" Height="30" Margin="8"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="0,0,0,-53" Grid.RowSpan="3">
+
+            <Button Content="Default" Click="button1_Click" Width="100" Height="30" Name="button1" Margin="0,24,0,0"/>
+            <Button Content="Custom visual" Click="button1_Click" Width="100" Height="30" Name="button2" Margin="4" FocusVisualStyle="{DynamicResource MyFocusVisual}"/>
+            <CheckBox Content="Default" Margin="100,24,0,0
+                      "/>
+            <CheckBox Content="Custom visual" Margin="100,4" FocusVisualStyle="{DynamicResource MyFocusVisual}"/>
+            <ComboBox Width="100" Height="30" Margin="0,24,0,0"/>
+            <ComboBox Width="100" Height="30" Margin="4" FocusVisualStyle="{DynamicResource MyFocusVisual}"/>
+            <TextBox Text="Default" Width="120" Height="30" Margin="0,24,0,0"/>
+            <TextBox Text="Custom visual" Width="120" Height="30" Margin="4" FocusVisualStyle="{DynamicResource MyFocusVisual}"/>
         </StackPanel>
     </Grid>
 </UserControl>
